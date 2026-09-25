@@ -2,31 +2,46 @@
   "name": "Mbayom POS System",
   "short_name": "Mbayom POS",
   "description": "Track sales, stock, and profit with Mbayom POS.",
-  "start_url": "https://server-point.github.io/mbayompos/",
-  "scope": "/mbayompos/",
   "id": "/mbayompos/",
+  "start_url": "/mbayompos/",
+  "scope": "/mbayompos/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
+  "lang": "en",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/qgu6ln2v/image/upload/v1790378631/launchericon-192x192_uylhx5.png",
+      "src": "/mbayompos/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://res.cloudinary.com/qgu6ln2v/image/upload/v1790378632/launchericon-512x512_gwtfmn.png",
+      "src": "/mbayompos/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/mbayompos/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://res.cloudinary.com/qgu6ln2v/image/upload/v1790378632/launchericon-512x512_gwtfmn.png",
+      "src": "/mbayompos/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/mbayompos/screenshots/screenshot-mobile.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ]
 }
