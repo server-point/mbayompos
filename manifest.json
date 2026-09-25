@@ -2,7 +2,7 @@
   "name": "Mbayom POS System",
   "short_name": "Mbayom POS",
   "description": "Track sales, stock, and profit with Mbayom POS.",
-  "start_url": "/mbayompos/",
+  "start_url": "https://server-point.github.io/mbayompos/",
   "scope": "/mbayompos/",
   "id": "/mbayompos/",
   "display": "standalone",
@@ -11,19 +11,19 @@
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "https://res.cloudinary.com/qgu6ln2v/image/upload/v1790378631/launchericon-192x192_uylhx5.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "https://res.cloudinary.com/qgu6ln2v/image/upload/v1790378632/launchericon-512x512_gwtfmn.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/icon-maskable-512.png",
+      "src": "https://res.cloudinary.com/qgu6ln2v/image/upload/v1790378632/launchericon-512x512_gwtfmn.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
