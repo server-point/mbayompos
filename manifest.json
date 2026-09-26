@@ -1,0 +1,16 @@
+{
+  "name": "Mbayom POS System",
+  "short_name": "Mbayom POS",
+  "description": "Cloud-based sales and inventory management system by Mbayom IT-Point Global Solutions.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0a0a1a",
+  "theme_color": "#0a0a1a",
+  "categories": ["business", "productivity", "finance"],
+  "icons": [
+    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
