@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a1a">
     <meta name="description" content="MBAYOM POS SYSTEM - Cloud-based sales and inventory management">
     <meta name="mobile-web-app-capable" content="yes">
@@ -1007,11 +1007,15 @@
         }
 
         /* ==================== IFRAME CONTAINER ==================== */
-        #app-container {
-            width: 100%;
-            height: 100vh;
+                #app-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             display: none;
-            position: relative;
+            background: #0a0a1a;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
             animation: appReveal 1s ease forwards;
         }
 
@@ -1285,7 +1289,6 @@
                             preloader.style.display = 'none';
                             const appContainer = document.getElementById('app-container');
                             appContainer.style.display = 'block';
-                            document.body.style.overflow = 'auto';
                         }, 800);
                     }, 500);
                 }
