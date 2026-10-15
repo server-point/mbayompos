@@ -1029,6 +1029,37 @@
             height: 100%;
             border: none;
         }
+
+                #ios-install-hint {
+            position: fixed;
+            left: 12px;
+            right: 12px;
+            bottom: calc(12px + env(safe-area-inset-bottom));
+            z-index: 9000;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            border-radius: 14px;
+            color: #e2e8f0;
+            font-size: 13px;
+            line-height: 1.4;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        #ios-install-hint strong { color: #fbbf24; }
+        #ios-install-hint svg { flex-shrink: 0; vertical-align: middle; }
+        #ios-install-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
     </style>
 </head>
 <body>
@@ -1146,7 +1177,14 @@
             </div>
         </div>
     </div>
-
+        <div id="ios-install-hint" role="dialog" aria-label="Install Mbayom POS">
+        <div>
+            <strong>Install Mbayom POS:</strong> tap
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+            <strong>Share</strong>, then <strong>Add to Home Screen</strong>.
+        </div>
+        <button id="ios-install-close" aria-label="Dismiss">&times;</button>
+    </div>
     <div id="app-container">
         <iframe 
             src="https://script.google.com/macros/s/AKfycbxK9ygfN1oGz3MMyt4D4JMkjRF1xqz4CwHEvSAr3S7-f-IlZHnGF9zF-eItHpfZEoZM/exec" 
@@ -1289,6 +1327,7 @@
                             preloader.style.display = 'none';
                             const appContainer = document.getElementById('app-container');
                             appContainer.style.display = 'block';
+                            showIosInstallHint();
                         }, 800);
                     }, 500);
                 }
@@ -1298,6 +1337,22 @@
 
 
     <script>
+        function showIosInstallHint() {
+            const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const isInstalled = window.navigator.standalone === true;
+            let dismissed = false;
+            try { dismissed = localStorage.getItem('iosInstallHintDismissed') === '1'; } catch (e) {}
+
+            if (!isIos || isInstalled || dismissed) return;
+
+            const hint = document.getElementById('ios-install-hint');
+            hint.style.display = 'flex';
+            document.getElementById('ios-install-close').onclick = () => {
+                hint.style.display = 'none';
+                try { localStorage.setItem('iosInstallHintDismissed', '1'); } catch (e) {}
+            };
+        }
         // Register the PWA service worker. The service worker caches this
         // GitHub Pages launcher only; the POS itself remains on Google Apps Script.
         if ('serviceWorker' in navigator) {
